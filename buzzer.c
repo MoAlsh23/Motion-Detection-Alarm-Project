@@ -1,11 +1,3 @@
-/******************************************************************************
- * Lab 4 starter code
- * ECE 266, Spring 2025
- *
- * buzzer.c: This file contains the initialization function for the buzzer.
- *
- * Created by Zhao Zhang
- *****************************************************************************/
 
 #include "buzzer.h"
 

@@ -1,12 +1,4 @@
-/*
- * buzzer.h: Header file for buzzer-related functions
- *
- * Lab 4 starter code
- * ECE 266, Spring 2025
- *
- * Created by Zhao Zhang
- *
- */
+
 
 #ifndef BUZZER_H_
 #define BUZZER_H_

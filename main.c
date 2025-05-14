@@ -1,12 +1,4 @@
-/*
- * Lab 4 starter code
- * ECE 266, Spring 2025
- *
- * lab4_main.c: Implement the tasks for a motion detection alarm.
- *
- * Created by Zhao Zhang
- *
- */
+
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -27,9 +19,7 @@ typedef struct {
     // Alert state: If the alert is on or off
     bool alerted;
 
-    // Sound state: If the buzzer is turned on to make a sound or not
-    // Note: When the system is activated and alerted, the buzzer is turned
-    // on and off periodically
+
     bool buzzer_on;
 } SysState;
 
@@ -46,14 +36,6 @@ Event buzzer_play_event;
 Event check_push_button_event;
 Event check_motion_event;
 
-/********************************************************************************
- * Task 1: If the system is activated and alerted, make the buzzer play
- * on/off sound. The buzzer will be repeatedly turned on and off.
- *
- * You may adjust the on and off times to change the sound pattern and intensity.
- *
- * Note: This is a callback function.
- *******************************************************************************/
 
 void BuzzerPlay(Event *event)                   // the scheduled time
 {
@@ -91,15 +73,6 @@ void BuzzerPlay(Event *event)                   // the scheduled time
     EventSchedule(event, event->time + delay);
 }
 
-/********************************************************************************
- * Task 2: YOUR CODE, check the motion sensor
- *
- * Check the motion sensor input. If motion is detected, put the system
- * in the alerted state. Otherwise, put it in the non-alerted state.
- *
- * This is a callback function. In the next lab, you will re-write this function
- * to make it interrupt based.
- *******************************************************************************/
 void CheckMotionSensor(Event *event)
 {
     if (!sys.activated) {
@@ -132,21 +105,6 @@ void CheckMotionSensor(Event *event)
         EventSchedule(event, event->time + 500);
 }
 
-/********************************************************************************
- * Task 3: Check push buttons.
- *
- * In the starter code: Pushing SW1 activates the system and put it in the
- * alerted state. Pushing SW2 deactivates the system.
- *
- * IN YOUR SOLUTION CODE: Pushing SW1 activates the system. Pushing SW2
- * deactivates the system. If the system is activated, the motion sensor
- * input decides if the system is put in the alerted state or not.
- *
- * This function is called upon interrupts. It is NOT a callback function.
- *
- * YOU NEED TO REVISE THIS FUNCTION
- *
- *******************************************************************************/
 
 void CheckPushButton(Event *event)
 {
@@ -174,12 +132,6 @@ void CheckPushButton(Event *event)
         break;
     }
 }
-
-
-/********************************************************************************
- * The main function: Print out a message, schedule the first callback event(s),
- * and then run the callback scheduler.
- *******************************************************************************/
 
 int main(void)
 {

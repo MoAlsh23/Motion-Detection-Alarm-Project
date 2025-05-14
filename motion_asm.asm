@@ -1,13 +1,5 @@
 
 
-;******************************************************************************
-; Lab 4 starter code
-; ECE 266, Spring 2025
-;
-; Assembly functions related to buzzer
-;
-; Created by Zhao Zhang
-;******************************************************************************
 
         ; To include names declared in C
         .cdecls "motion.h"
